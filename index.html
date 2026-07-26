@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MicroCotiz — Support</title>
+<meta name="description" content="Support de MicroCotiz, l'app iOS de suivi de chiffre d'affaires pour auto-entrepreneurs.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F2F4F3; --surface:#FFFFFF; --texte:#0F1520; --texte2:#5F6B66;
+    --filet:#E3E8E5; --accent:#3A665B; --accent-bg:#E7EFEC;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background:var(--bg); color:var(--texte);
+    font-family:'Plus Jakarta Sans',system-ui,sans-serif;
+    font-size:16px; line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .mono{font-family:'JetBrains Mono',monospace}
+  main{max-width:640px;margin:0 auto;padding:56px 24px 80px}
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;letter-spacing:.13em;text-transform:uppercase;
+    color:var(--accent);margin-bottom:14px;
+  }
+  h1{font-size:34px;font-weight:800;letter-spacing:-.02em;line-height:1.15;margin-bottom:10px}
+  .sub{color:var(--texte2);margin-bottom:36px;max-width:46ch}
+  .carte{
+    background:var(--surface);border-radius:18px;padding:24px;
+    box-shadow:0 2px 8px rgba(15,21,32,.06);margin-bottom:12px;
+  }
+  .carte h2{font-size:17px;font-weight:700;margin-bottom:8px}
+  .carte p{color:var(--texte2);font-size:15px}
+  .carte p+p{margin-top:8px}
+  a{color:var(--accent);font-weight:600;text-decoration:none}
+  a:hover,a:focus-visible{text-decoration:underline}
+  a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+  .mail{
+    display:inline-block;background:var(--accent);color:#fff;
+    border-radius:15px;padding:13px 22px;font-weight:700;font-size:15px;
+    margin-top:6px;
+  }
+  .mail:hover{text-decoration:none;filter:brightness(1.08)}
+  .faq dt{font-weight:700;font-size:15px;margin-top:18px}
+  .faq dt:first-child{margin-top:0}
+  .faq dd{color:var(--texte2);font-size:15px;margin-top:4px}
+  footer{
+    max-width:640px;margin:0 auto;padding:0 24px 48px;
+    color:var(--texte2);font-size:13px;
+  }
+  footer nav{display:flex;gap:18px;padding-top:18px;border-top:1px solid var(--filet)}
+</style>
+</head>
+<body>
+<main>
+  <p class="eyebrow">MicroCotiz · Support</p>
+  <h1>Une question sur l'app&nbsp;?</h1>
+  <p class="sub">MicroCotiz suit votre chiffre d'affaires, vos seuils et vos cotisations d'auto-entrepreneur. Tout reste sur votre téléphone.</p>
+
+  <div class="carte">
+    <h2>Contacter le développeur</h2>
+    <p>Écrivez-moi, je réponds en général sous 48&nbsp;h. Précisez votre version d'iOS si le problème est technique.</p>
+    <p><a class="mail" href="mailto:soghomoniantom@gmail.com?subject=MicroCotiz%20%E2%80%94%20support">Écrire un e-mail</a></p>
+  </div>
+
+  <div class="carte faq">
+    <h2>Questions fréquentes</h2>
+    <dl>
+      <dt>J'ai changé de téléphone, où sont mes données&nbsp;?</dt>
+      <dd>Vos données vivent uniquement dans l'app. Elles suivent votre sauvegarde iCloud ou iTunes&nbsp;: restaurez le nouveau téléphone depuis la sauvegarde de l'ancien et tout revient. Sans sauvegarde, les données de l'ancien appareil ne sont pas récupérables — il n'existe aucune copie sur un serveur.</dd>
+      <dt>J'ai acheté la version Pro, comment la retrouver&nbsp;?</dt>
+      <dd>Profil → «&nbsp;Restaurer mes achats&nbsp;». L'achat est lié à votre compte App Store, pas à l'appareil.</dd>
+      <dt>Les montants affichés font-ils foi&nbsp;?</dt>
+      <dd>Non. MicroCotiz est un outil d'aide au suivi&nbsp;: les montants de cotisations sont des estimations à partir des barèmes en vigueur, et seuls les montants calculés par l'URSSAF font foi. L'app ne remplace ni l'URSSAF ni un expert-comptable.</dd>
+      <dt>Les taux sont-ils à jour&nbsp;?</dt>
+      <dd>Les barèmes sont vérifiés à chaque loi de finances et mis à jour par mise à jour de l'app. La date de dernière vérification est affichée dans l'écran «&nbsp;À propos&nbsp;».</dd>
+      <dt>L'app fonctionne-t-elle sans connexion&nbsp;?</dt>
+      <dd>Oui, entièrement. Rien ne transite par un serveur.</dd>
+    </dl>
+  </div>
+</main>
+<footer>
+  <nav>
+    <a href="confidentialite.html">Politique de confidentialité</a>
+  </nav>
+</footer>
+</body>
+</html>
