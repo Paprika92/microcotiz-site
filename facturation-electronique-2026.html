@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Facturation électronique : ce qui change le 1er septembre 2026 pour ta micro-entreprise — MicroCotiz</title>
+<meta name="description" content="Au 1er septembre 2026, toutes les entreprises — micro-entreprises incluses, même en franchise de TVA — doivent pouvoir recevoir des factures électroniques. Ce que ça change concrètement, et quoi faire avant la date.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F2F5F3; --surface:#FFFFFF;
+    --texte:#0F1520; --texte2:#5F6B80; --corps:#3C465A;
+    --filet:#E3E8F0; --accent:#3A665B; --accent-bg:#E7EFEC; --accent-texte:#26423A;
+    --warning-bg:#FBF0DC; --warning-fort:#8A5A0B;
+    --encastre:#F4F7F5;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--corps);font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  .page{max-width:680px;margin:0 auto;padding:28px 20px 80px}
+  a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+  .mono{font-family:'JetBrains Mono',monospace}
+
+  .site-nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:36px}
+  .site-nav .logo{font-weight:800;color:var(--texte);font-size:17px;text-decoration:none}
+  .site-nav .retour{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.13em;text-transform:none;color:var(--texte2);text-decoration:none}
+
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.13em;color:var(--accent-texte);margin-bottom:14px}
+  h1{color:var(--texte);font-size:clamp(26px,5.5vw,34px);font-weight:800;line-height:1.22;letter-spacing:-.01em;margin-bottom:14px}
+  .chapo{font-size:17.5px;font-weight:500;color:var(--texte);margin-bottom:10px}
+  .meta{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--texte2);margin-bottom:34px}
+
+  h2{color:var(--texte);font-size:20px;font-weight:700;margin:38px 0 12px;line-height:1.3}
+  p{margin-bottom:14px}
+  strong{color:var(--texte);font-weight:700}
+  ul{margin:0 0 14px 0;padding-left:0;list-style:none}
+  ul li{padding-left:22px;position:relative;margin-bottom:8px}
+  ul li::before{content:"";position:absolute;left:4px;top:.62em;width:6px;height:6px;border-radius:3px;background:var(--accent)}
+
+  .carte{background:var(--surface);border-radius:18px;padding:18px 20px;margin:22px 0;box-shadow:0 2px 8px rgba(15,21,32,.06)}
+  .carte .titre-carte{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.13em;color:var(--texte2);margin-bottom:10px}
+  .carte p:last-child,.carte ul:last-child{margin-bottom:0}
+
+  .carte-dates{background:var(--surface);border-radius:18px;padding:0;margin:22px 0;box-shadow:0 2px 8px rgba(15,21,32,.06);overflow:hidden}
+  .ligne-date{display:flex;gap:16px;padding:16px 20px;align-items:baseline}
+  .ligne-date + .ligne-date{border-top:1px solid var(--filet)}
+  .ligne-date .quand{font-family:'JetBrains Mono',monospace;font-size:12.5px;font-weight:500;color:var(--accent-texte);white-space:nowrap;min-width:96px}
+  .ligne-date .quoi{font-size:14.5px}
+  .ligne-date .quoi strong{display:block;font-size:15px}
+
+  .encart-warning{background:var(--warning-bg);border-radius:14px;padding:14px 16px;margin:18px 0;font-size:14.5px}
+  .encart-warning .titre{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.13em;color:var(--warning-fort);margin-bottom:6px}
+
+  .cta{background:var(--accent);border-radius:18px;padding:22px;margin:40px 0 26px;color:#fff}
+  .cta .titre{font-weight:800;font-size:18px;margin-bottom:8px;color:#fff}
+  .cta p{color:rgba(255,255,255,.88);font-size:14.5px;margin-bottom:14px}
+  .cta a.btn{display:inline-block;background:#fff;color:var(--accent-texte);font-weight:700;font-size:15px;padding:13px 22px;border-radius:15px;text-decoration:none}
+
+  .sources{background:var(--encastre);border-radius:14px;padding:16px 18px;font-size:13.5px;color:var(--texte2)}
+  .sources .titre{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.13em;margin-bottom:10px}
+  .sources li{margin-bottom:6px}
+  .sources li::before{background:var(--texte2)}
+  .verif{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--texte2);margin-top:26px}
+
+  .disclaimer{font-size:12.5px;color:var(--texte2);margin-top:18px;padding-top:16px;border-top:1px solid var(--filet)}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <nav class="site-nav">
+    <a class="logo" href="/microcotiz-site/">MicroCotiz</a>
+    <a class="retour" href="/microcotiz-site/">RETOUR AU SITE</a>
+  </nav>
+
+  <p class="eyebrow">FACTURATION ELECTRONIQUE</p>
+  <h1>Ce qui change le 1er septembre 2026 pour ta micro-entreprise</h1>
+  <p class="chapo">Dans quelques semaines, toutes les entreprises françaises devront pouvoir recevoir des factures électroniques. Oui, les micro-entreprises aussi. Oui, même si tu ne factures pas de TVA. Voilà ce que ça veut dire concrètement, et ce que tu as à faire.</p>
+  <p class="meta">Publié le 10 août 2026 · Lecture 5 min</p>
+
+  <h2>La réforme en deux dates</h2>
+  <p>La facturation électronique arrive en deux temps, et c'est là que beaucoup d'auto-entrepreneurs se trompent : ils regardent la deuxième date et oublient la première.</p>
+
+  <div class="carte-dates">
+    <div class="ligne-date">
+      <span class="quand">1 SEPT. 2026</span>
+      <span class="quoi"><strong>Recevoir</strong>Toutes les entreprises, quelle que soit leur taille, doivent être capables de recevoir des factures électroniques. Micro-entreprises incluses, franchise de TVA incluse.</span>
+    </div>
+    <div class="ligne-date">
+      <span class="quand">1 SEPT. 2027</span>
+      <span class="quoi"><strong>Émettre</strong>Les micro-entreprises devront à leur tour émettre leurs factures entre professionnels au format électronique, et transmettre leurs données de transaction à l'administration (e-reporting).</span>
+    </div>
+  </div>
+
+  <p>Autrement dit : ton obligation d'<strong>émettre</strong> des factures électroniques n'arrive qu'en 2027, mais ton obligation d'être capable d'en <strong>recevoir</strong>, elle, tombe le 1er septembre 2026.</p>
+
+  <h2>« Mais je suis en franchise de TVA, je ne suis pas concerné »</h2>
+  <p>Si. C'est le piège numéro un de cette réforme pour les auto-entrepreneurs.</p>
+  <p>En franchise en base, tu ne <em>collectes</em> pas la TVA — mais tu restes <strong>assujetti</strong> à la TVA au sens fiscal. Et la réforme s'applique à tous les assujettis, sans condition de chiffre d'affaires, de forme juridique ou de régime d'imposition. La mention « TVA non applicable, art. 293 B du CGI » sur tes factures ne t'en sort pas.</p>
+
+  <h2>Une facture électronique, ce n'est pas un PDF par mail</h2>
+  <p>Deuxième malentendu courant. Une facture électronique au sens de la réforme, c'est un fichier <strong>structuré</strong>, lisible par des machines (formats Factur-X, UBL ou CII), qui transite par une <strong>plateforme agréée</strong> — pas un PDF envoyé en pièce jointe.</p>
+  <p>Concrètement, les factures ne circuleront plus directement de ton fournisseur à toi : elles passeront par des plateformes certifiées, routées grâce à un annuaire national des entreprises. C'est pour ça que « être capable de recevoir » demande une petite démarche de ta part.</p>
+
+  <h2>Ce que tu as à faire avant le 1er septembre</h2>
+  <ul>
+    <li><strong>Choisir ta plateforme de réception.</strong> La liste officielle des plateformes agréées est publiée par l'administration fiscale. Certaines proposent des offres gratuites adaptées aux très petites structures — compare avant de t'engager, et vérifie le statut d'agrément sur la liste officielle plutôt que sur le site d'un éditeur.</li>
+    <li><strong>Déclarer ton adresse de réception dans l'annuaire.</strong> L'annuaire central du Portail Public de Facturation est ouvert depuis le 1er juin 2026. En pratique, quand tu choisis une plateforme, c'est elle qui déclare et maintient ton inscription. La démarche prend quelques minutes.</li>
+    <li><strong>Ne pas paniquer.</strong> L'administration a annoncé une logique d'accompagnement au démarrage : l'objectif affiché est l'adoption de la réforme, pas la sanction immédiate. Mais ne rien faire devient une non-conformité — autant régler ça maintenant, c'est court.</li>
+  </ul>
+
+  <div class="encart-warning">
+    <p class="titre">SI TU NE FACTURES QUE DES PARTICULIERS</p>
+    <p>La facturation électronique entre entreprises (e-invoicing) ne concerne pas tes ventes aux particuliers. En revanche, l'e-reporting — la transmission de tes données de transaction à l'administration — s'appliquera à ces ventes à partir de ton échéance de 2027. Et tu restes concerné par la réception dès 2026 pour les factures de tes fournisseurs professionnels.</p>
+  </div>
+
+  <h2>Et en 2027, on en reparle</h2>
+  <p>Le 1er septembre 2027, la deuxième marche : émission obligatoire au format électronique pour tes factures entre professionnels, et e-reporting. Ça touchera directement ta façon de facturer — numérotation, format, plateforme d'émission. On y consacrera un guide complet le moment venu. D'ici là, l'étape de 2026 est la seule qui compte.</p>
+
+  <div class="cta">
+    <p class="titre">Tes échéances, sans y penser</p>
+    <p>MicroCotiz suit ton chiffre d'affaires, calcule tes cotisations URSSAF et te rappelle chaque échéance de déclaration. Gratuit, sans compte, tes chiffres restent sur ton téléphone.</p>
+    <a class="btn" href="https://apps.apple.com/fr/app/id6793455032">Télécharger sur l'App Store</a>
+  </div>
+
+  <div class="sources">
+    <p class="titre">SOURCES OFFICIELLES</p>
+    <ul>
+      <li><a href="https://www.economie.gouv.fr/tout-savoir-sur-la-facturation-electronique-pour-les-entreprises">economie.gouv.fr — Tout savoir sur la facturation électronique</a></li>
+      <li><a href="https://www.impots.gouv.fr/sites/default/files/media/1_metier/2_professionnel/EV/2_gestion/290_facturation_electronique/guide_pratique_facturation_electronique.pdf">impots.gouv.fr — Guide pratique de la facturation électronique (PDF)</a></li>
+    </ul>
+  </div>
+
+  <p class="verif">CONTENU VERIFIE LE 10 AOUT 2026</p>
+
+  <p class="disclaimer">MicroCotiz t'oriente, mais ne remplace pas un conseil personnalisé. En cas de doute sur ta situation, rapproche-toi de l'administration fiscale ou d'un expert-comptable.</p>
+
+</div>
+</body>
+</html>

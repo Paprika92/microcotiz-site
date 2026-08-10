@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ACRE : le délai de 60 jours qui peut te coûter des centaines d'euros — MicroCotiz</title>
+<meta name="description" content="Depuis janvier 2026, l'ACRE n'est plus automatique : tu as 60 jours après ta date de début d'activité pour la demander à l'URSSAF. Passé ce délai, c'est perdu, sans recours. Conditions, taux 2026 et démarche.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F2F5F3; --surface:#FFFFFF;
+    --texte:#0F1520; --texte2:#5F6B80; --corps:#3C465A;
+    --filet:#E3E8F0; --accent:#3A665B; --accent-bg:#E7EFEC; --accent-texte:#26423A;
+    --warning-bg:#FBF0DC; --warning-fort:#8A5A0B;
+    --danger-bg:#FBEAE8; --danger-texte:#8C1D18; --danger-bord:#F0D5D2;
+    --encastre:#F4F7F5;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--corps);font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  .page{max-width:680px;margin:0 auto;padding:28px 20px 80px}
+  a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+
+  .site-nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:36px}
+  .site-nav .logo{font-weight:800;color:var(--texte);font-size:17px;text-decoration:none}
+  .site-nav .retour{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.13em;color:var(--texte2);text-decoration:none}
+
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.13em;color:var(--accent-texte);margin-bottom:14px}
+  h1{color:var(--texte);font-size:clamp(26px,5.5vw,34px);font-weight:800;line-height:1.22;letter-spacing:-.01em;margin-bottom:14px}
+  .chapo{font-size:17.5px;font-weight:500;color:var(--texte);margin-bottom:10px}
+  .meta{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--texte2);margin-bottom:34px}
+
+  h2{color:var(--texte);font-size:20px;font-weight:700;margin:38px 0 12px;line-height:1.3}
+  p{margin-bottom:14px}
+  strong{color:var(--texte);font-weight:700}
+  ul{margin:0 0 14px 0;padding-left:0;list-style:none}
+  ul li{padding-left:22px;position:relative;margin-bottom:8px}
+  ul li::before{content:"";position:absolute;left:4px;top:.62em;width:6px;height:6px;border-radius:3px;background:var(--accent)}
+
+  .carte-dates{background:var(--surface);border-radius:18px;padding:0;margin:22px 0;box-shadow:0 2px 8px rgba(15,21,32,.06);overflow:hidden}
+  .ligne-date{display:flex;gap:16px;padding:16px 20px;align-items:baseline}
+  .ligne-date + .ligne-date{border-top:1px solid var(--filet)}
+  .ligne-date .quand{font-family:'JetBrains Mono',monospace;font-size:12.5px;font-weight:500;color:var(--accent-texte);white-space:nowrap;min-width:130px}
+  .ligne-date .quoi{font-size:14.5px}
+  .ligne-date .quoi strong{display:block;font-size:15px}
+
+  .encart-danger{background:var(--danger-bg);border:1px solid var(--danger-bord);border-radius:14px;padding:14px 16px;margin:18px 0;font-size:14.5px}
+  .encart-danger .titre{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.13em;color:var(--danger-texte);margin-bottom:6px}
+  .encart-warning{background:var(--warning-bg);border-radius:14px;padding:14px 16px;margin:18px 0;font-size:14.5px}
+  .encart-warning .titre{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.13em;color:var(--warning-fort);margin-bottom:6px}
+
+  .cta{background:var(--accent);border-radius:18px;padding:22px;margin:40px 0 26px;color:#fff}
+  .cta .titre{font-weight:800;font-size:18px;margin-bottom:8px;color:#fff}
+  .cta p{color:rgba(255,255,255,.88);font-size:14.5px;margin-bottom:14px}
+  .cta a.btn{display:inline-block;background:#fff;color:var(--accent-texte);font-weight:700;font-size:15px;padding:13px 22px;border-radius:15px;text-decoration:none}
+
+  .sources{background:var(--encastre);border-radius:14px;padding:16px 18px;font-size:13.5px;color:var(--texte2)}
+  .sources .titre{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.13em;margin-bottom:10px}
+  .sources li{margin-bottom:6px}
+  .sources li::before{background:var(--texte2)}
+  .verif{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--texte2);margin-top:26px}
+  .disclaimer{font-size:12.5px;color:var(--texte2);margin-top:18px;padding-top:16px;border-top:1px solid var(--filet)}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <nav class="site-nav">
+    <a class="logo" href="/microcotiz-site/">MicroCotiz</a>
+    <a class="retour" href="/microcotiz-site/">RETOUR AU SITE</a>
+  </nav>
+
+  <p class="eyebrow">ACRE</p>
+  <h1>ACRE : le délai de 60 jours qui peut te coûter des centaines d'euros</h1>
+  <p class="chapo">Depuis janvier 2026, l'ACRE n'est plus accordée automatiquement aux auto-entrepreneurs : il faut la demander à l'URSSAF, dans les 60 jours qui suivent ta date de début d'activité. Passé ce délai, c'est terminé — sans recours. Beaucoup de créateurs le découvrent trop tard, sur leur premier appel de cotisations.</p>
+  <p class="meta">Publié le 10 août 2026 · Lecture 5 min</p>
+
+  <h2>L'ACRE, c'est quoi exactement</h2>
+  <p>L'aide à la création ou à la reprise d'entreprise (ACRE) est une <strong>exonération partielle de tes cotisations sociales</strong> en début d'activité. Pour un auto-entrepreneur, elle réduit le taux appliqué à ton chiffre d'affaires déclaré, jusqu'à la fin du <strong>troisième trimestre civil</strong> qui suit celui de ton début d'activité — soit environ un an au maximum.</p>
+  <p>Le taux d'exonération dépend de ta date de début d'activité :</p>
+
+  <div class="carte-dates">
+    <div class="ligne-date">
+      <span class="quand">AVANT LE 01/07/2026</span>
+      <span class="quoi"><strong>50 % d'exonération</strong>sur tes cotisations sociales pendant la période ACRE.</span>
+    </div>
+    <div class="ligne-date">
+      <span class="quand">DEPUIS LE 01/07/2026</span>
+      <span class="quoi"><strong>25 % d'exonération</strong>Le taux a été divisé par deux pour les créations à partir du 1er juillet 2026.</span>
+    </div>
+  </div>
+
+  <p>À noter : l'exonération porte sur les cotisations sociales, pas sur tout ce que tu verses à l'URSSAF — la contribution à la formation professionnelle, par exemple, reste due en entier.</p>
+
+  <h2>Ce qui a changé en 2026 : la demande dans les 60 jours</h2>
+  <p>Jusqu'à fin 2025, l'ACRE était appliquée sur simple demande sans délai strict. Depuis le <strong>1er janvier 2026</strong>, la règle est différente : tu dois déposer ta demande auprès de l'URSSAF <strong>dans un délai de 60 jours maximum après ta date de début d'activité</strong>.</p>
+
+  <div class="encart-danger">
+    <p class="titre">DELAI DE FORCLUSION</p>
+    <p>Passé les 60 jours, la demande est rejetée automatiquement. Il n'existe <strong>aucun recours, aucune dérogation</strong>. Tu perds définitivement l'ACRE pour cette création — et tu le découvres en général sur ton premier appel de cotisations, quand plus rien n'est rattrapable.</p>
+  </div>
+
+  <p>Le bon réflexe : faire la demande <strong>juste après</strong> ta déclaration de création sur le guichet unique. Quand tu finalises ta déclaration d'activité, télécharge le justificatif de création — c'est la pièce qu'il te faudra pour la demande d'ACRE. Puis dépose ta demande depuis ton espace sur autoentrepreneur.urssaf.fr. L'URSSAF instruit ensuite ta demande ; sans réponse de sa part dans le délai d'instruction, l'ACRE est réputée accordée.</p>
+
+  <h2>Qui y a droit</h2>
+  <p>L'ACRE n'est pas ouverte à tout le monde. Les principales catégories éligibles :</p>
+  <ul>
+    <li>Demandeur d'emploi indemnisé, ou non indemnisé mais inscrit depuis plus de 6 mois dans les 18 derniers mois</li>
+    <li>Bénéficiaire du RSA ou de l'ASS</li>
+    <li>Moins de 26 ans (ou moins de 30 ans si non indemnisé ou en situation de handicap)</li>
+    <li>Création dans un quartier prioritaire de la ville (QPV) ou, depuis 2026, dans certaines zones rurales (ZFRR)</li>
+    <li>Bénéficiaire d'un contrat d'appui au projet d'entreprise (CAPE), reprise d'entreprise en difficulté…</li>
+  </ul>
+  <p>Deux conditions s'ajoutent dans tous les cas : remplir l'une de ces situations <strong>à la date de la demande</strong>, et <strong>ne pas avoir déjà bénéficié de l'ACRE dans les 3 années précédentes</strong>. La liste exacte et les justificatifs attendus sont sur le site de l'URSSAF (lien en bas de page).</p>
+
+  <h2>Le second piège : l'ACRE se consomme même sans chiffre d'affaires</h2>
+  <p>La période d'exonération démarre à ta <strong>date de début d'activité déclarée</strong> — pas à ton premier euro encaissé. Si tu crées ton statut en mars « pour être prêt » mais que tu ne factures qu'à partir de septembre, tu as consommé six mois d'ACRE à exonérer… rien du tout.</p>
+  <div class="encart-warning">
+    <p class="titre">BON REFLEXE</p>
+    <p>Ne déclare pas ton début d'activité des mois avant de facturer réellement. La date de début d'activité pilote l'ACRE, mais aussi ta première échéance de déclaration URSSAF. Choisis-la au plus près de ton vrai démarrage.</p>
+  </div>
+
+  <h2>En résumé</h2>
+  <ul>
+    <li>L'ACRE n'est <strong>plus automatique</strong> depuis janvier 2026 : sans demande, pas d'exonération, même si tu es éligible.</li>
+    <li>Tu as <strong>60 jours</strong> après ta date de début d'activité. Après, c'est perdu, sans recours.</li>
+    <li>50 % d'exonération si tu as créé avant le 1er juillet 2026, 25 % depuis.</li>
+    <li>L'exonération court depuis ta date de début d'activité déclarée, que tu factures ou non.</li>
+  </ul>
+
+  <div class="cta">
+    <p class="titre">L'ACRE, calculée automatiquement</p>
+    <p>Dans MicroCotiz, tu indiques ta situation ACRE une fois : l'app applique le bon taux à chaque encaissement, affiche la date de fin de ton exonération et te dit combien mettre de côté. Gratuit, sans compte, tes chiffres restent sur ton téléphone.</p>
+    <a class="btn" href="https://apps.apple.com/fr/app/id6793455032">Télécharger sur l'App Store</a>
+  </div>
+
+  <div class="sources">
+    <p class="titre">SOURCES OFFICIELLES</p>
+    <ul>
+      <li><a href="https://www.urssaf.fr/accueil/exoneration-acre-createur.html">urssaf.fr — L'Acre : l'aide pour les créateurs et repreneurs</a></li>
+      <li><a href="https://www.urssaf.fr/accueil/actualites/acre-nouvelles-regles-demarches.html">urssaf.fr — Acre : nouvelles règles et démarches à partir du 1er janvier 2026</a></li>
+    </ul>
+  </div>
+
+  <p class="verif">CONTENU VERIFIE LE 10 AOUT 2026</p>
+
+  <p class="disclaimer">MicroCotiz t'oriente, mais ne remplace pas un conseil personnalisé. En cas de doute sur ton éligibilité, rapproche-toi de l'URSSAF ou d'un expert-comptable.</p>
+
+</div>
+</body>
+</html>
