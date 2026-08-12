@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calcul des cotisations URSSAF auto-entrepreneur 2026 : taux, formule, exemples</title>
+<meta name="description" content="Taux URSSAF 2026 par activité (12,3 %, 21,2 %, 25,6 %...), formule de calcul, ACRE, versement libératoire et exemples chiffrés. Chiffres vérifiés sur urssaf.fr en août 2026.">
+<link rel="canonical" href="https://paprika92.github.io/microcotiz-site/calcul-cotisations-urssaf-2026.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F2F4F3; --surface:#FFFFFF; --texte:#0F1520; --texte2:#5F6B66;
+    --filet:#E3E8E5; --accent:#3A665B; --accent-bg:#E7EFEC;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background:var(--bg); color:var(--texte);
+    font-family:'Plus Jakarta Sans',system-ui,sans-serif;
+    font-size:16px; line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .mono{font-family:'JetBrains Mono',monospace}
+  main{max-width:640px;margin:0 auto;padding:56px 24px 80px}
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;letter-spacing:.13em;text-transform:uppercase;
+    color:var(--accent);margin-bottom:14px;
+  }
+  h1{font-size:34px;font-weight:800;letter-spacing:-.02em;line-height:1.15;margin-bottom:10px}
+  .sub{color:var(--texte2);margin-bottom:36px;max-width:46ch}
+  .carte{
+    background:var(--surface);border-radius:18px;padding:24px;
+    box-shadow:0 2px 8px rgba(15,21,32,.06);margin-bottom:12px;
+  }
+  .carte h2{font-size:17px;font-weight:700;margin-bottom:8px}
+  .carte h3{font-size:15px;font-weight:700;margin-top:16px;margin-bottom:4px}
+  .carte p{color:var(--texte2);font-size:15px}
+  .carte p+p{margin-top:8px}
+  .carte ul{color:var(--texte2);font-size:15px;padding-left:20px;margin-top:8px}
+  .carte li+li{margin-top:6px}
+  .taux{width:100%;border-collapse:collapse;margin-top:12px;font-size:15px}
+  .taux td{padding:9px 0;border-bottom:1px solid var(--filet);color:var(--texte2)}
+  .taux tr:last-child td{border-bottom:none}
+  .taux td:last-child{
+    text-align:right;font-family:'JetBrains Mono',monospace;
+    color:var(--accent);white-space:nowrap;padding-left:12px;
+  }
+  .encadre{
+    background:var(--accent-bg);border-radius:14px;padding:16px;
+    margin-top:14px;font-size:14px;color:var(--texte2);
+  }
+  .formule{
+    font-family:'JetBrains Mono',monospace;font-size:15px;
+    background:var(--accent-bg);border-radius:14px;padding:16px;
+    color:var(--accent);margin-top:12px;overflow-x:auto;
+  }
+  strong{color:var(--texte)}
+  a{color:var(--accent);font-weight:600;text-decoration:none}
+  a:hover,a:focus-visible{text-decoration:underline}
+  a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+  .cta{
+    display:inline-block;background:var(--accent);color:#fff;
+    border-radius:15px;padding:13px 22px;font-weight:700;font-size:15px;
+    margin-top:10px;
+  }
+  .cta:hover{text-decoration:none;filter:brightness(1.08)}
+  footer{
+    max-width:640px;margin:0 auto;padding:0 24px 48px;
+    color:var(--texte2);font-size:13px;
+  }
+  footer .verif{padding-top:18px;border-top:1px solid var(--filet)}
+  footer nav{display:flex;gap:18px;margin-top:12px}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Quel taux URSSAF pour un auto-entrepreneur en 2026 ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "En 2026, les cotisations sociales sont de 12,3 % du CA pour la vente de marchandises (BIC), 21,2 % pour les prestations de services BIC, 25,6 % pour les professions libérales BNC au régime général, 23,2 % pour les libéraux CIPAV et 6 % pour les meublés de tourisme classés. S'y ajoutent la CFP (0,1 à 0,3 %) et, pour les commerçants et artisans, la taxe pour frais de chambre consulaire."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Les cotisations se calculent-elles sur le CA ou le bénéfice ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sur le chiffre d'affaires encaissé, jamais sur le bénéfice. C'est le principe du régime micro-social : un pourcentage fixe appliqué au CA, sans aucune charge déductible. Si vous n'encaissez rien, vous ne payez rien — mais la déclaration reste obligatoire, même à zéro."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Que se passe-t-il si je ne déclare pas ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Chaque déclaration manquante entraîne une pénalité d'environ 60,10 € en 2026. La déclaration est obligatoire à chaque échéance, y compris quand le chiffre d'affaires est de 0 €."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pourquoi le taux BNC a-t-il augmenté ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Un décret du 30 mai 2024 a relevé le taux des professions libérales BNC par paliers : 23,1 % au second semestre 2024, 24,6 % en 2025, puis 25,6 % depuis le 1er janvier 2026. Beaucoup de sites affichent encore les anciens taux : vérifiez toujours sur urssaf.fr."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quand paie-t-on ses cotisations ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "En déclaration mensuelle, à la fin du mois suivant le mois d'encaissement. En déclaration trimestrielle, aux quatre échéances : 30 avril, 31 juillet, 31 octobre et 31 janvier."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<main>
+  <p class="eyebrow">MicroCotiz · Guide</p>
+  <h1>Calcul des cotisations URSSAF auto-entrepreneur 2026&nbsp;: taux, formule, exemples</h1>
+  <p class="sub">Les taux 2026 par activité, ce qui s'ajoute aux cotisations sociales, la formule exacte et deux exemples chiffrés — avec et sans ACRE.</p>
+
+  <div class="carte">
+    <h2>Le principe&nbsp;: un pourcentage fixe de ton CA encaissé</h2>
+    <p>En micro-entreprise, tes cotisations sont un <strong>pourcentage fixe du chiffre d'affaires encaissé</strong>. Pas de charges déductibles, pas de calcul de bénéfice&nbsp;: tu déclares ce que tu as encaissé, l'URSSAF applique le taux de ton activité.</p>
+    <p>Conséquence directe&nbsp;: <strong>0&nbsp;€ de CA = 0&nbsp;€ de cotisations</strong>. Mais attention, la déclaration reste obligatoire même à zéro — chaque déclaration manquante coûte environ <strong>60,10&nbsp;€</strong> de pénalité en 2026.</p>
+  </div>
+
+  <div class="carte">
+    <h2>Les taux 2026 par activité</h2>
+    <table class="taux">
+      <tr><td>Vente de marchandises (BIC)</td><td>12,3&nbsp;%</td></tr>
+      <tr><td>Prestations de services BIC (commerciales/artisanales)</td><td>21,2&nbsp;%</td></tr>
+      <tr><td>Professions libérales BNC (régime général)</td><td>25,6&nbsp;%</td></tr>
+      <tr><td>Professions libérales CIPAV</td><td>23,2&nbsp;%</td></tr>
+      <tr><td>Meublés de tourisme classés</td><td>6&nbsp;%</td></tr>
+    </table>
+    <div class="encadre">Le taux BNC a augmenté par paliers (décret du 30/05/2024)&nbsp;: 23,1&nbsp;% au S2 2024, 24,6&nbsp;% en 2025, <strong>25,6&nbsp;% depuis le 01/01/2026</strong>. Beaucoup de sites affichent encore les anciens taux&nbsp;: vérifie toujours sur urssaf.fr.</div>
+  </div>
+
+  <div class="carte">
+    <h2>Ce qui s'ajoute aux cotisations sociales</h2>
+    <ul>
+      <li><strong>CFP</strong> (contribution à la formation professionnelle)&nbsp;: 0,1&nbsp;% pour les commerçants, 0,3&nbsp;% pour les artisans, 0,2&nbsp;% pour les professions libérales (BNC).</li>
+      <li><strong>Taxe pour frais de chambre consulaire</strong>&nbsp;: commerçants et artisans uniquement — les libéraux à l'URSSAF n'en paient pas.</li>
+      <li><strong>Versement libératoire de l'IR</strong>, si tu as pris l'option&nbsp;: 1&nbsp;% (vente), 1,7&nbsp;% (prestations BIC), 2,2&nbsp;% (BNC).</li>
+    </ul>
+  </div>
+
+  <div class="carte">
+    <h2>La formule, avec un exemple complet</h2>
+    <div class="formule">cotisations = CA encaissé × (taux social + CFP [+ taxe consulaire] [+ VL])</div>
+    <h3>Exemple&nbsp;: libéral BNC, 30&nbsp;000&nbsp;€ de CA annuel, sans option</h3>
+    <p>30&nbsp;000&nbsp;€ × 25,6&nbsp;% = <strong>7&nbsp;680&nbsp;€</strong> de cotisations sociales, plus <strong>60&nbsp;€</strong> de CFP (0,2&nbsp;%), soit <strong>7&nbsp;740&nbsp;€</strong> au total — un taux effectif de <strong>25,8&nbsp;%</strong>.</p>
+    <h3>Le même avec ACRE (création depuis le 01/07/2026)</h3>
+    <p>L'exonération de 25&nbsp;% porte sur les seules cotisations sociales, jamais la CFP&nbsp;: <strong>5&nbsp;760&nbsp;€</strong> + 60&nbsp;€ = <strong>5&nbsp;820&nbsp;€</strong>.</p>
+    <p><a class="cta" href="simulateur.html">Calcule tes cotisations exactes</a></p>
+  </div>
+
+  <div class="carte">
+    <h2>L'ACRE en deux mots</h2>
+    <p>Pour les créations depuis le 01/07/2026, l'ACRE exonère <strong>25&nbsp;%</strong> des cotisations sociales (50&nbsp;% avant cette date). Elle ne touche ni la CFP, ni la taxe consulaire, ni le versement libératoire.</p>
+    <p>Point critique&nbsp;: la demande doit être faite <strong>dans les 60 jours</strong> suivant la création. Tout le détail dans notre guide <a href="acre-delai-60-jours.html">ACRE&nbsp;: le délai de 60 jours qui peut te coûter des centaines d'euros</a>.</p>
+  </div>
+
+  <div class="carte">
+    <h2>Questions fréquentes</h2>
+    <h3>Quel taux URSSAF pour un auto-entrepreneur en 2026&nbsp;?</h3>
+    <p>12,3&nbsp;% (vente BIC), 21,2&nbsp;% (prestations BIC), 25,6&nbsp;% (libéral BNC régime général), 23,2&nbsp;% (libéral CIPAV), 6&nbsp;% (meublés de tourisme classés) — plus la CFP et, pour les commerçants et artisans, la taxe consulaire.</p>
+    <h3>Les cotisations se calculent-elles sur le CA ou le bénéfice&nbsp;?</h3>
+    <p>Sur le CA encaissé, jamais sur le bénéfice. Aucune charge n'est déductible en micro.</p>
+    <h3>Que se passe-t-il si je ne déclare pas&nbsp;?</h3>
+    <p>Environ 60,10&nbsp;€ de pénalité par déclaration manquante en 2026 — même à 0&nbsp;€ de CA, la déclaration est obligatoire.</p>
+    <h3>Pourquoi le taux BNC a-t-il augmenté&nbsp;?</h3>
+    <p>Décret du 30/05/2024, hausse par paliers&nbsp;: 23,1&nbsp;% au S2 2024, 24,6&nbsp;% en 2025, 25,6&nbsp;% depuis le 01/01/2026.</p>
+    <h3>Quand paie-t-on ses cotisations&nbsp;?</h3>
+    <p>En mensuel&nbsp;: à la fin du mois suivant l'encaissement. En trimestriel&nbsp;: 30/04, 31/07, 31/10 et 31/01.</p>
+  </div>
+
+  <div class="carte">
+    <h2>À lire aussi</h2>
+    <p><a href="plafond-micro-entreprise-2026-depasse.html">Plafond micro-entreprise 2026 dépassé&nbsp;: que faire</a></p>
+    <p><a href="seuil-tva-auto-entrepreneur-2026.html">Seuil TVA 2026&nbsp;: les montants et quoi faire en cas de dépassement</a></p>
+    <p><a href="acre-delai-60-jours.html">ACRE&nbsp;: le délai de 60 jours qui peut te coûter des centaines d'euros</a></p>
+  </div>
+
+  <div class="carte">
+    <h2>Calculer, c'est bien. Suivre toute l'année, c'est mieux</h2>
+    <p>Commence par notre <a href="simulateur.html">simulateur de cotisations 2026</a> pour calculer tes cotisations exactes. Et pour que le calcul se fasse tout seul à chaque encaissement, avec les jauges de seuils et les rappels d'échéances&nbsp;:</p>
+    <p><a class="cta" href="https://apps.apple.com/fr/app/id6793455032">Télécharger MicroCotiz</a></p>
+  </div>
+</main>
+<footer>
+  <p class="verif">Chiffres vérifiés le 12 août 2026 — sources&nbsp;: urssaf.fr, autoentrepreneur.urssaf.fr</p>
+  <nav>
+    <a href="index.html">Support</a>
+    <a href="confidentialite.html">Politique de confidentialité</a>
+  </nav>
+</footer>
+</body>
+</html>
