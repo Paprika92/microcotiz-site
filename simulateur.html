@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simulateur cotisations auto-entrepreneur 2026 (URSSAF) — gratuit</title>
+<meta name="description" content="Simulateur gratuit de cotisations auto-entrepreneur 2026 : calculez vos cotisations URSSAF, ACRE, versement libératoire et votre position face aux seuils micro et TVA.">
+<link rel="canonical" href="https://paprika92.github.io/microcotiz-site/simulateur.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F2F4F3; --surface:#FFFFFF; --texte:#0F1520; --texte2:#5F6B66;
+    --filet:#E3E8E5; --accent:#3A665B; --accent-bg:#E7EFEC;
+    --orange:#C77A2B; --rouge:#B23B33;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background:var(--bg); color:var(--texte);
+    font-family:'Plus Jakarta Sans',system-ui,sans-serif;
+    font-size:16px; line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .mono{font-family:'JetBrains Mono',monospace}
+  main{max-width:640px;margin:0 auto;padding:56px 24px 80px}
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;letter-spacing:.13em;text-transform:uppercase;
+    color:var(--accent);margin-bottom:14px;
+  }
+  h1{font-size:34px;font-weight:800;letter-spacing:-.02em;line-height:1.15;margin-bottom:10px}
+  .sub{color:var(--texte2);margin-bottom:36px;max-width:46ch}
+  .carte{
+    background:var(--surface);border-radius:18px;padding:24px;
+    box-shadow:0 2px 8px rgba(15,21,32,.06);margin-bottom:12px;
+  }
+  .carte h2{font-size:17px;font-weight:700;margin-bottom:8px}
+  .carte p{color:var(--texte2);font-size:15px}
+  .carte p+p{margin-top:8px}
+  strong{color:var(--texte)}
+  a{color:var(--accent);font-weight:600;text-decoration:none}
+  a:hover,a:focus-visible{text-decoration:underline}
+  a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+  .cta{
+    display:inline-block;background:var(--accent);color:#fff;
+    border-radius:15px;padding:13px 22px;font-weight:700;font-size:15px;
+    margin-top:10px;
+  }
+  .cta:hover{text-decoration:none;filter:brightness(1.08)}
+  footer{
+    max-width:640px;margin:0 auto;padding:0 24px 48px;
+    color:var(--texte2);font-size:13px;
+  }
+  footer nav{display:flex;gap:18px;padding-top:18px;border-top:1px solid var(--filet)}
+
+  /* Formulaire */
+  .champ{margin-bottom:16px}
+  .champ label{display:block;font-size:14px;font-weight:600;margin-bottom:6px}
+  .champ input[type="number"],.champ select{
+    width:100%;padding:11px 14px;font-size:15px;
+    font-family:'Plus Jakarta Sans',system-ui,sans-serif;
+    border:1px solid var(--filet);border-radius:12px;
+    background:var(--bg);color:var(--texte);
+  }
+  .champ input[type="number"]{font-family:'JetBrains Mono',monospace}
+  .champ input:focus-visible,.champ select:focus-visible,
+  .case input:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:6px}
+  .case{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;font-size:15px}
+  .case input{margin-top:4px;accent-color:var(--accent);width:16px;height:16px}
+  .case span{color:var(--texte2)}
+  .case strong{display:block;font-size:14px}
+
+  /* Résultats */
+  .ligne{
+    display:flex;justify-content:space-between;align-items:baseline;
+    padding:9px 0;border-bottom:1px solid var(--filet);font-size:15px;
+  }
+  .ligne:last-of-type{border-bottom:none}
+  .ligne .lab{color:var(--texte2)}
+  .ligne .val{font-family:'JetBrains Mono',monospace;font-size:15px}
+  .ligne.total{
+    background:var(--accent-bg);border-radius:12px;padding:12px 14px;
+    margin-top:8px;border-bottom:none;
+  }
+  .ligne.total .lab{color:var(--texte);font-weight:700}
+  .ligne.total .val{color:var(--accent);font-weight:500;font-size:18px}
+  .vide{color:var(--texte2);font-size:15px}
+
+  /* Jauges */
+  .jauge{margin-top:16px}
+  .jauge .tete{
+    display:flex;justify-content:space-between;align-items:baseline;
+    font-size:14px;margin-bottom:6px;
+  }
+  .jauge .tete .nom{font-weight:600}
+  .jauge .tete .pct{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--texte2)}
+  .barre{height:10px;background:var(--bg);border-radius:6px;overflow:hidden}
+  .barre .rempli{height:100%;border-radius:6px;background:var(--accent);transition:width .25s}
+  .barre .rempli.orange{background:var(--orange)}
+  .barre .rempli.rouge{background:var(--rouge)}
+  .jauge .reste{font-size:13px;color:var(--texte2);margin-top:5px}
+  .jauge .reste .mono{font-size:13px}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Simulateur de cotisations auto-entrepreneur 2026",
+  "url": "https://paprika92.github.io/microcotiz-site/simulateur.html",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR"
+  }
+}
+</script>
+</head>
+<body>
+<main>
+  <p class="eyebrow">MicroCotiz · Simulateur</p>
+  <h1>Simulateur de cotisations auto-entrepreneur 2026</h1>
+  <p class="sub">Saisis ton chiffre d'affaires, choisis ton activité : cotisations URSSAF, taux effectif, revenu net et position face aux seuils, instantanément.</p>
+
+  <div class="carte">
+    <h2>Ton chiffre d'affaires</h2>
+    <form id="form" novalidate>
+      <div class="champ">
+        <label for="ca">Montant de CA (€)</label>
+        <input type="number" id="ca" inputmode="decimal" min="0" step="any" placeholder="30 000">
+      </div>
+      <div class="champ">
+        <label for="periode">Période du CA</label>
+        <select id="periode">
+          <option value="mensuel">Mensuel</option>
+          <option value="trimestriel">Trimestriel</option>
+          <option value="annuel" selected>Annuel</option>
+        </select>
+      </div>
+      <div class="champ">
+        <label for="activite">Type d'activité</label>
+        <select id="activite">
+          <option value="vente_bic">Achat-revente / vente (BIC)</option>
+          <option value="presta_bic_commerciale">Prestations commerciales (BIC)</option>
+          <option value="presta_bic_artisanale">Prestations artisanales (BIC)</option>
+          <option value="liberal_bnc" selected>Libéral non réglementé (BNC)</option>
+          <option value="liberal_cipav">Libéral Cipav</option>
+          <option value="meuble_tourisme_classe">Meublé de tourisme classé</option>
+        </select>
+      </div>
+      <label class="case">
+        <input type="checkbox" id="acre">
+        <span><strong>ACRE</strong>Exonération de 25&nbsp;% des cotisations sociales (créateurs éligibles, barème depuis le 01/07/2026)</span>
+      </label>
+      <label class="case">
+        <input type="checkbox" id="vl">
+        <span><strong>Versement libératoire</strong>Impôt sur le revenu payé en même temps que les cotisations</span>
+      </label>
+    </form>
+  </div>
+
+  <div class="carte">
+    <h2>Résultats</h2>
+    <div id="resultats" aria-live="polite">
+      <p class="vide">Saisis un montant de CA pour lancer le calcul.</p>
+    </div>
+  </div>
+
+  <div class="carte">
+    <h2>Où tu en es face aux seuils</h2>
+    <p>Sur la base de ton CA annualisé&nbsp;: <span class="mono" id="ca-annuel">—</span></p>
+    <div id="jauges"></div>
+  </div>
+
+  <div class="carte">
+    <h2>À savoir</h2>
+    <p>Ces montants sont des <strong>estimations</strong> calculées à partir des barèmes en vigueur depuis le 01/07/2026. Seuls les montants calculés par l'URSSAF font foi. Ce simulateur ne remplace ni l'URSSAF ni un expert-comptable.</p>
+  </div>
+
+  <div class="carte">
+    <h2>Pour suivre ça toute l'année</h2>
+    <p>MicroCotiz calcule tes cotisations à chaque encaissement, surveille tes seuils micro et TVA, et te rappelle tes échéances URSSAF. Sans compte, sans serveur.</p>
+    <p><a class="cta" href="https://apps.apple.com/fr/app/id6793455032">Télécharger MicroCotiz</a></p>
+  </div>
+
+  <div class="carte">
+    <h2>À lire aussi</h2>
+    <p><a href="seuil-tva-auto-entrepreneur-2026.html">Seuil TVA 2026&nbsp;: les montants et quoi faire en cas de dépassement</a></p>
+    <p><a href="facturation-electronique-2026.html">Facturation électronique&nbsp;: ce qui change le 1er septembre 2026</a></p>
+    <p><a href="acre-delai-60-jours.html">ACRE&nbsp;: le délai de 60 jours qui peut te coûter des centaines d'euros</a></p>
+  </div>
+</main>
+<footer>
+  <nav>
+    <a href="index.html">Support</a>
+    <a href="confidentialite.html">Politique de confidentialité</a>
+  </nav>
+</footer>
+
+<script>
+'use strict';
+
+// ————————————————————————————————————————————————————————————
+// Barème depuis le 01/07/2026 — porté depuis baremes.ts (app MicroCotiz)
+// ————————————————————————————————————————————————————————————
+var BAREME = {
+  acreExoneration: 0.25,
+  taux: {
+    vente_bic:              { cotisationsSociales: 0.123, cfp: 0.001, taxeConsulaire: 0.00015, versementLiberatoire: 0.01,  abattementIR: 0.71 },
+    presta_bic_commerciale: { cotisationsSociales: 0.212, cfp: 0.001, taxeConsulaire: 0.00044, versementLiberatoire: 0.017, abattementIR: 0.5 },
+    presta_bic_artisanale:  { cotisationsSociales: 0.212, cfp: 0.003, taxeConsulaire: 0.0048,  versementLiberatoire: 0.017, abattementIR: 0.5 },
+    liberal_bnc:            { cotisationsSociales: 0.256, cfp: 0.002, taxeConsulaire: 0,       versementLiberatoire: 0.022, abattementIR: 0.34 },
+    liberal_cipav:          { cotisationsSociales: 0.232, cfp: 0.002, taxeConsulaire: 0,       versementLiberatoire: 0.022, abattementIR: 0.34 },
+    meuble_tourisme_classe: { cotisationsSociales: 0.06,  cfp: 0.001, taxeConsulaire: 0.00015, versementLiberatoire: 0.01,  abattementIR: 0.71 }
+  },
+  seuils: {
+    microVente: 188700,
+    microPresta: 77700,
+    tvaVenteBase: 85000,
+    tvaVenteMajore: 93500,
+    tvaPrestaBase: 37500,
+    tvaPrestaMajore: 41250
+  }
+};
+
+// Famille d'assiette « vente » — même règle que moteur.ts (estVente)
+function estVente(activite) {
+  return activite === 'vente_bic' || activite === 'meuble_tourisme_classe';
+}
+
+function arrondiEuro(v) {
+  return Math.round(v * 100) / 100;
+}
+
+// Même logique que calcCotisations (moteur.ts) : l'ACRE exonère UNIQUEMENT
+// les cotisations sociales — CFP, taxe consulaire et VL restent dus en entier.
+function calcCotisations(montant, activite, acre, vl) {
+  var t = BAREME.taux[activite];
+  var tauxSocial = t.cotisationsSociales;
+  if (acre) tauxSocial = tauxSocial * (1 - BAREME.acreExoneration);
+
+  var social = montant * tauxSocial;
+  var cfp = montant * t.cfp;
+  var consulaire = montant * t.taxeConsulaire;
+  var versement = vl ? montant * t.versementLiberatoire : 0;
+  var total = social + cfp + consulaire + versement;
+
+  return {
+    base: arrondiEuro(montant),
+    cotisationsSociales: arrondiEuro(social),
+    cfp: arrondiEuro(cfp),
+    taxeConsulaire: arrondiEuro(consulaire),
+    versementLiberatoire: arrondiEuro(versement),
+    total: arrondiEuro(total),
+    netEstime: arrondiEuro(montant - total),
+    tauxEffectif: montant > 0 ? total / montant : 0
+  };
+}
+
+// ————————————————————————————————————————————————————————————
+// Formats fr-FR
+// ————————————————————————————————————————————————————————————
+var fmtEuro = new Intl.NumberFormat('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+var fmtEuroEntier = new Intl.NumberFormat('fr-FR', { maximumFractionDigits: 0 });
+var fmtPct = new Intl.NumberFormat('fr-FR', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+
+function euros(v) { return fmtEuro.format(v) + ' €'; }
+function eurosEntiers(v) { return fmtEuroEntier.format(v) + ' €'; }
+
+// ————————————————————————————————————————————————————————————
+// UI
+// ————————————————————————————————————————————————————————————
+var $ca = document.getElementById('ca');
+var $periode = document.getElementById('periode');
+var $activite = document.getElementById('activite');
+var $acre = document.getElementById('acre');
+var $vl = document.getElementById('vl');
+var $resultats = document.getElementById('resultats');
+var $jauges = document.getElementById('jauges');
+var $caAnnuel = document.getElementById('ca-annuel');
+
+function ligne(label, valeur, cls) {
+  return '<div class="ligne' + (cls ? ' ' + cls : '') + '">' +
+    '<span class="lab">' + label + '</span>' +
+    '<span class="val">' + valeur + '</span></div>';
+}
+
+function jauge(nom, ca, seuil) {
+  var ratio = ca / seuil;
+  var pct = ratio * 100;
+  var cls = ratio > 1 ? 'rouge' : ratio >= 0.8 ? 'orange' : '';
+  var largeur = Math.min(pct, 100);
+  var reste = seuil - ca;
+  var texteReste = reste >= 0
+    ? 'Reste <span class="mono">' + eurosEntiers(reste) + '</span> avant le seuil de <span class="mono">' + eurosEntiers(seuil) + '</span>'
+    : 'Seuil de <span class="mono">' + eurosEntiers(seuil) + '</span> dépassé de <span class="mono">' + eurosEntiers(-reste) + '</span>';
+  return '<div class="jauge">' +
+    '<div class="tete"><span class="nom">' + nom + '</span>' +
+    '<span class="pct">' + fmtPct.format(pct) + ' %</span></div>' +
+    '<div class="barre"><div class="rempli ' + cls + '" style="width:' + largeur + '%"></div></div>' +
+    '<div class="reste">' + texteReste + '</div></div>';
+}
+
+function calculer() {
+  var montant = parseFloat($ca.value);
+  if (isNaN(montant) || montant < 0) {
+    $resultats.innerHTML = '<p class="vide">Saisis un montant de CA pour lancer le calcul.</p>';
+    $jauges.innerHTML = '';
+    $caAnnuel.textContent = '—';
+    return;
+  }
+
+  var activite = $activite.value;
+  var acre = $acre.checked;
+  var vl = $vl.checked;
+  var r = calcCotisations(montant, activite, acre, vl);
+
+  var html = ligne('Cotisations sociales' + (acre ? ' (ACRE −25 %)' : ''), euros(r.cotisationsSociales));
+  html += ligne('CFP (formation professionnelle)', euros(r.cfp));
+  if (r.taxeConsulaire > 0) html += ligne('Taxe consulaire', euros(r.taxeConsulaire));
+  if (vl) html += ligne('Versement libératoire', euros(r.versementLiberatoire));
+  html += ligne('Total à payer', euros(r.total), 'total');
+  html += ligne('Taux global effectif', fmtPct.format(r.tauxEffectif * 100) + ' %');
+  html += ligne('Revenu net estimé', euros(r.netEstime));
+  $resultats.innerHTML = html;
+
+  // Jauges sur le CA annualisé
+  var facteur = $periode.value === 'mensuel' ? 12 : $periode.value === 'trimestriel' ? 4 : 1;
+  var caAnnuel = montant * facteur;
+  $caAnnuel.textContent = euros(caAnnuel);
+
+  var vente = estVente(activite);
+  var plafondMicro = vente ? BAREME.seuils.microVente : BAREME.seuils.microPresta;
+  var seuilTva = vente ? BAREME.seuils.tvaVenteBase : BAREME.seuils.tvaPrestaBase;
+  $jauges.innerHTML =
+    jauge('Plafond micro-entreprise', caAnnuel, plafondMicro) +
+    jauge('Seuil TVA (franchise en base)', caAnnuel, seuilTva);
+}
+
+document.getElementById('form').addEventListener('submit', function (e) {
+  e.preventDefault();
+  calculer();
+});
+[$ca, $periode, $activite, $acre, $vl].forEach(function (el) {
+  el.addEventListener('input', calculer);
+  el.addEventListener('change', calculer);
+});
+</script>
+</body>
+</html>
