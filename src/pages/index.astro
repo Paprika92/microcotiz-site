@@ -1,0 +1,161 @@
+---
+import Base from '../layouts/Base.astro';
+import { BAREMES } from '../../data/baremes';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+// Période de barème en vigueur (fin: null). Aucune valeur fiscale en dur ici :
+// tout vient de data/baremes.ts (copie de l'app, source de vérité).
+const bareme = BAREMES.find((b) => b.fin === null);
+if (!bareme) throw new Error('Aucune période de barème en vigueur dans data/baremes.ts');
+
+const pct = new Intl.NumberFormat('fr-FR', { maximumFractionDigits: 1 });
+const euros = new Intl.NumberFormat('fr-FR', { maximumFractionDigits: 0 });
+
+const tauxVente = pct.format(bareme.taux.vente_bic.cotisationsSociales * 100);
+const tauxBnc = pct.format(bareme.taux.liberal_bnc.cotisationsSociales * 100);
+const plafondVente = euros.format(bareme.seuils.microVente);
+const plafondPresta = euros.format(bareme.seuils.microPresta);
+const tvaPresta = euros.format(bareme.seuils.tvaPrestaBase);
+
+const guides = [
+  {
+    href: 'calcul-cotisations-urssaf-2026.html',
+    titre: 'Calcul des cotisations URSSAF 2026',
+    ligne: 'Taux par activité, formule exacte et exemples chiffrés, avec et sans ACRE.',
+  },
+  {
+    href: 'seuil-tva-auto-entrepreneur-2026.html',
+    titre: 'Seuil TVA 2026',
+    ligne: 'Les montants officiels, les seuils majorés et quoi faire en cas de dépassement.',
+  },
+  {
+    href: 'plafond-micro-entreprise-2026-depasse.html',
+    titre: 'Plafond micro-entreprise dépassé',
+    ligne: 'La règle des deux ans, le prorata de la première année, les bons réflexes.',
+  },
+  {
+    href: 'versement-liberatoire-2026.html',
+    titre: 'Versement libératoire',
+    ligne: 'Pour qui l’option fait gagner de l’argent, et pour qui elle en fait perdre.',
+  },
+  {
+    href: 'acre-delai-60-jours.html',
+    titre: 'ACRE : le délai de 60 jours',
+    ligne: 'La demande n’est plus automatique — passé le délai, c’est perdu sans recours.',
+  },
+  {
+    href: 'premiere-declaration-urssaf.html',
+    titre: 'Première déclaration URSSAF',
+    ligne: 'Le délai de 90 jours, ta vraie première échéance et le 0 € obligatoire.',
+  },
+  {
+    href: 'facturation-electronique-2026.html',
+    titre: 'Facturation électronique',
+    ligne: 'Ce qui change le 1er septembre 2026, même en franchise de TVA.',
+  },
+];
+---
+<Base
+  title="MicroCotiz — cotisations, seuils et déclarations des auto-entrepreneurs"
+  description="Suis ton chiffre d'affaires, tes cotisations URSSAF, tes seuils micro et TVA et tes échéances de déclaration. Sans compte, hors ligne : tout reste sur ton téléphone."
+  variant="home"
+>
+  <section class="hero">
+    <p class="eyebrow">MicroCotiz · iOS</p>
+    <h1>Le compagnon des auto-entrepreneurs</h1>
+    <p class="sub">Ton chiffre d'affaires, tes cotisations, tes seuils micro et TVA et tes déclarations URSSAF — sans compte, hors ligne, tout reste sur ton téléphone.</p>
+    <a class="mail" href="https://apps.apple.com/fr/app/id6793455032" rel="noopener">Télécharger sur l'App Store</a>
+
+    <div class="carte stats">
+      <div class="stat">
+        <div class="val">{tauxVente}&nbsp;%</div>
+        <div class="lab">cotisations vente (BIC)</div>
+      </div>
+      <div class="stat">
+        <div class="val">{tauxBnc}&nbsp;%</div>
+        <div class="lab">cotisations libéral (BNC)</div>
+      </div>
+      <div class="stat">
+        <div class="val">{plafondVente}&nbsp;€</div>
+        <div class="lab">plafond micro vente</div>
+      </div>
+      <div class="stat">
+        <div class="val">{tvaPresta}&nbsp;€</div>
+        <div class="lab">seuil TVA services</div>
+      </div>
+    </div>
+    <p class="stats-note">Barèmes en vigueur, alignés sur ceux de l'app — vérifiés à chaque loi de finances.</p>
+  </section>
+
+  <section class="bloc">
+    <h2>Simule tes cotisations</h2>
+    <a class="carte teaser" href={`${base}/simulateur.html`}>
+      <span class="teaser-titre">Simulateur de cotisations 2026</span>
+      <span class="teaser-ligne">Saisis ton CA, choisis ton activité : cotisations URSSAF, taux effectif, revenu net et position face aux seuils, instantanément.</span>
+      <span class="teaser-action">Ouvrir le simulateur →</span>
+    </a>
+  </section>
+
+  <section class="bloc">
+    <h2>Guides</h2>
+    <div class="grille">
+      {guides.map((g) => (
+        <a class="carte guide" href={`${base}/${g.href}`}>
+          <span class="guide-titre">{g.titre}</span>
+          <span class="guide-ligne">{g.ligne}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="bloc">
+    <h2>L'app fait le travail</h2>
+    <div class="grille benefices">
+      <div class="carte benefice">
+        <div class="benefice-titre">Jauges de seuils</div>
+        <p>Ta position face au plafond micro ({plafondPresta}&nbsp;€ en services) et aux seuils de TVA, mise à jour à chaque encaissement.</p>
+      </div>
+      <div class="carte benefice">
+        <div class="benefice-titre">Provision automatique</div>
+        <p>À chaque encaissement, l'app calcule ce que tu dois mettre de côté — ACRE et versement libératoire compris.</p>
+      </div>
+      <div class="carte benefice">
+        <div class="benefice-titre">Déclaration guidée</div>
+        <p>Rappels à J−7 et J−1, et le montant exact à recopier dans le formulaire URSSAF à chaque échéance.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bloc">
+    <h2>Questions fréquentes</h2>
+    <details class="carte">
+      <summary>J'ai changé de téléphone, où sont mes données&nbsp;?</summary>
+      <p class="reponse">Tes données vivent uniquement dans l'app. Elles suivent ta sauvegarde iCloud ou iTunes&nbsp;: restaure le nouveau téléphone depuis la sauvegarde de l'ancien et tout revient. Sans sauvegarde, les données de l'ancien appareil ne sont pas récupérables — il n'existe aucune copie sur un serveur.</p>
+    </details>
+    <details class="carte">
+      <summary>J'ai acheté la version Pro, comment la retrouver&nbsp;?</summary>
+      <p class="reponse">Profil → «&nbsp;Restaurer mes achats&nbsp;». L'achat est lié à ton compte App Store, pas à l'appareil.</p>
+    </details>
+    <details class="carte">
+      <summary>Les montants affichés font-ils foi&nbsp;?</summary>
+      <p class="reponse">Non. MicroCotiz est un outil d'aide au suivi&nbsp;: les montants de cotisations sont des estimations à partir des barèmes en vigueur, et seuls les montants calculés par l'URSSAF font foi. L'app ne remplace ni l'URSSAF ni un expert-comptable.</p>
+    </details>
+    <details class="carte">
+      <summary>Les taux sont-ils à jour&nbsp;?</summary>
+      <p class="reponse">Les barèmes sont vérifiés à chaque loi de finances et mis à jour par mise à jour de l'app. La date de dernière vérification est affichée dans l'écran «&nbsp;À propos&nbsp;».</p>
+    </details>
+    <details class="carte">
+      <summary>L'app fonctionne-t-elle sans connexion&nbsp;?</summary>
+      <p class="reponse">Oui, entièrement. Rien ne transite par un serveur.</p>
+    </details>
+  </section>
+
+  <section class="bloc">
+    <h2>Une question sur l'app</h2>
+    <div class="carte">
+      <p class="support-p">Écris-moi, je réponds en général sous 48&nbsp;h. Précise ta version d'iOS si le problème est technique.</p>
+      <p><a href="mailto:soghomoniantom@gmail.com?subject=MicroCotiz%20%E2%80%94%20support">soghomoniantom@gmail.com</a></p>
+    </div>
+  </section>
+</Base>

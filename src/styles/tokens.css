@@ -1,0 +1,43 @@
+/* tokens.css — design system MicroCotiz site
+   Direction : glass sur fond clair vert-de-gris (cf. docs/DECISIONS-SITE.md).
+   Palette héritée de l'app : fond #F2F5F3, texte #0F1520, accent #3A665B. */
+
+:root {
+  /* Fond & surfaces */
+  --bg: #F2F5F3;
+  --bg-halo-1: #E3EDE7;
+  --bg-halo-2: #E9EFF2;
+  --surface-opaque: #FFFFFF;
+  --surface-glass: rgba(255, 255, 255, 0.58);
+  --surface-bord: rgba(255, 255, 255, 0.72);
+
+  /* Texte */
+  --texte: #0F1520;
+  --texte2: #5F6B72;
+  --corps: #39434E;
+
+  /* Accent */
+  --accent: #3A665B;
+  --accent-bg: #E7EFEC;
+  --accent-texte: #26423A;
+
+  /* États */
+  --warning-bg: #FBF0DC;
+  --warning-fort: #8A5A0B;
+  --danger-bg: #FBEAE8;
+  --danger-texte: #8C1D18;
+  --danger-bord: #F0D5D2;
+  --encastre: rgba(244, 247, 245, 0.75);
+
+  /* Filets & rayons */
+  --filet: rgba(15, 21, 32, 0.09);
+  --radius: 18px;
+  --radius-s: 14px;
+
+  /* Ombres (courtes) */
+  --ombre-carte: 0 2px 10px rgba(15, 21, 32, 0.06);
+
+  /* Typo */
+  --font-texte: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}

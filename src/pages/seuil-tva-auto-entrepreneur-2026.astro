@@ -1,76 +1,13 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Seuil TVA auto-entrepreneur 2026 : 37 500 € / 85 000 € (montants officiels)</title>
-<meta name="description" content="Seuils de franchise en base de TVA 2026 pour auto-entrepreneur : 37 500 € (services) et 85 000 € (vente), seuils majorés, règles de dépassement et prorata la 1ère année.">
-<link rel="canonical" href="https://paprika92.github.io/microcotiz-site/seuil-tva-auto-entrepreneur-2026.html">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg:#F2F4F3; --surface:#FFFFFF; --texte:#0F1520; --texte2:#5F6B66;
-    --filet:#E3E8E5; --accent:#3A665B; --accent-bg:#E7EFEC;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{
-    background:var(--bg); color:var(--texte);
-    font-family:'Plus Jakarta Sans',system-ui,sans-serif;
-    font-size:16px; line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-  }
-  .mono{font-family:'JetBrains Mono',monospace}
-  main{max-width:640px;margin:0 auto;padding:56px 24px 80px}
-  .eyebrow{
-    font-family:'JetBrains Mono',monospace;
-    font-size:11px;letter-spacing:.13em;text-transform:uppercase;
-    color:var(--accent);margin-bottom:14px;
-  }
-  h1{font-size:34px;font-weight:800;letter-spacing:-.02em;line-height:1.15;margin-bottom:10px}
-  .sub{color:var(--texte2);margin-bottom:36px;max-width:46ch}
-  .carte{
-    background:var(--surface);border-radius:18px;padding:24px;
-    box-shadow:0 2px 8px rgba(15,21,32,.06);margin-bottom:12px;
-  }
-  .carte h2{font-size:17px;font-weight:700;margin-bottom:8px}
-  .carte p{color:var(--texte2);font-size:15px}
-  .carte p+p{margin-top:8px}
-  .carte ul{color:var(--texte2);font-size:15px;padding-left:20px;margin-top:8px}
-  .carte li+li{margin-top:6px}
-  .chiffres{
-    display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px;
-  }
-  .chiffre{
-    background:var(--accent-bg);border-radius:14px;padding:16px;
-  }
-  .chiffre .val{
-    font-family:'JetBrains Mono',monospace;font-size:22px;font-weight:500;
-    color:var(--accent);
-  }
-  .chiffre .lab{font-size:13px;color:var(--texte2);margin-top:4px}
-  .chiffre .maj{
-    font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--texte2);margin-top:8px;
-  }
-  strong{color:var(--texte)}
-  a{color:var(--accent);font-weight:600;text-decoration:none}
-  a:hover,a:focus-visible{text-decoration:underline}
-  a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
-  .cta{
-    display:inline-block;background:var(--accent);color:#fff;
-    border-radius:15px;padding:13px 22px;font-weight:700;font-size:15px;
-    margin-top:10px;
-  }
-  .cta:hover{text-decoration:none;filter:brightness(1.08)}
-  footer{
-    max-width:640px;margin:0 auto;padding:0 24px 48px;
-    color:var(--texte2);font-size:13px;
-  }
-  footer nav{display:flex;gap:18px;padding-top:18px;border-top:1px solid var(--filet)}
-  @media (max-width:420px){.chiffres{grid-template-columns:1fr}}
-</style>
-<script type="application/ld+json">
+---
+import Base from '../layouts/Base.astro';
+---
+<Base
+  title="Seuil TVA auto-entrepreneur 2026 : 37 500 € / 85 000 € (montants officiels)"
+  description="Seuils de franchise en base de TVA 2026 pour auto-entrepreneur : 37 500 € (services) et 85 000 € (vente), seuils majorés, règles de dépassement et prorata la 1ère année."
+  canonical="seuil-tva-auto-entrepreneur-2026.html"
+  variant="cards"
+>
+  <script type="application/ld+json" slot="head" is:inline>
 {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -101,10 +38,8 @@
     }
   ]
 }
-</script>
-</head>
-<body>
-<main>
+  </script>
+
   <p class="eyebrow">MicroCotiz · Guide</p>
   <h1>Seuil TVA auto-entrepreneur 2026&nbsp;: les montants et quoi faire en cas de dépassement</h1>
   <p class="sub">Les seuils de franchise en base de TVA en 2026, la différence avec les plafonds micro, et les règles exactes quand tu dépasses.</p>
@@ -166,12 +101,4 @@
     <p><a href="facturation-electronique-2026.html">Facturation électronique&nbsp;: ce qui change le 1er septembre 2026</a></p>
     <p><a href="acre-delai-60-jours.html">ACRE&nbsp;: le délai de 60 jours qui peut te coûter des centaines d'euros</a></p>
   </div>
-</main>
-<footer>
-  <nav>
-    <a href="index.html">Support</a>
-    <a href="confidentialite.html">Politique de confidentialité</a>
-  </nav>
-</footer>
-</body>
-</html>
+</Base>
