@@ -1,15 +1,13 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Première déclaration URSSAF auto-entrepreneur : le délai de 90 jours expliqué | MicroCotiz</title>
-<meta name="description" content="SIRET reçu mais aucune échéance dans ton espace URSSAF : c'est normal. Le délai de 90 jours, ta vraie première échéance selon ta périodicité, et pourquoi déclarer 0 € est obligatoire.">
-<link rel="canonical" href="https://paprika92.github.io/microcotiz-site/premiere-declaration-urssaf.html">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<script type="application/ld+json">
+---
+import Base from '../layouts/Base.astro';
+---
+<Base
+  title="Première déclaration URSSAF auto-entrepreneur : le délai de 90 jours expliqué | MicroCotiz"
+  description="SIRET reçu mais aucune échéance dans ton espace URSSAF : c'est normal. Le délai de 90 jours, ta vraie première échéance selon ta périodicité, et pourquoi déclarer 0 € est obligatoire."
+  canonical="premiere-declaration-urssaf.html"
+  variant="longform"
+>
+  <script type="application/ld+json" slot="head" is:inline>
 {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -48,166 +46,7 @@
     }
   ]
 }
-</script>
-<style>
-  :root {
-    --bg: #F2F5F3;
-    --surface: #FFFFFF;
-    --texte: #0F1520;
-    --texte2: #5F6B80;
-    --texte-corps: #3C465A;
-    --filet: #E3E8F0;
-    --accent: #3A665B;
-    --accent-bg: #E7EFEC;
-    --accent-texte: #26423A;
-    --warning-bg: #FBF0DC;
-    --warning-fort: #8A5A0B;
-    --encastre: #F4F7F5;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    background: var(--bg);
-    color: var(--texte-corps);
-    font-size: 16.5px;
-    line-height: 1.65;
-    -webkit-font-smoothing: antialiased;
-  }
-  .page { max-width: 720px; margin: 0 auto; padding: 24px 20px 80px; }
-  .fil {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.13em;
-    color: var(--accent);
-    margin-bottom: 20px;
-  }
-  .fil a { color: var(--accent); text-decoration: none; }
-  .fil a:hover { text-decoration: underline; }
-  h1 {
-    font-size: 30px;
-    font-weight: 800;
-    line-height: 1.25;
-    color: var(--texte);
-    letter-spacing: -0.01em;
-    margin-bottom: 10px;
-  }
-  .meta {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11.5px;
-    color: var(--texte2);
-    margin-bottom: 32px;
-  }
-  h2 {
-    font-size: 21px;
-    font-weight: 700;
-    color: var(--texte);
-    margin: 40px 0 12px;
-    letter-spacing: -0.005em;
-  }
-  h3 {
-    font-size: 16.5px;
-    font-weight: 700;
-    color: var(--texte);
-    margin: 26px 0 8px;
-  }
-  p { margin-bottom: 14px; }
-  strong { font-weight: 700; color: var(--texte); }
-  ul { margin: 0 0 14px 22px; }
-  li { margin-bottom: 6px; }
-  a { color: var(--accent); }
-  .carte {
-    background: var(--surface);
-    border-radius: 18px;
-    padding: 20px;
-    margin: 20px 0;
-    box-shadow: 0 2px 8px rgba(15,21,32,.06);
-  }
-  .carte-titre {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10.5px;
-    font-weight: 500;
-    letter-spacing: 0.13em;
-    color: var(--texte2);
-    margin-bottom: 10px;
-  }
-  table { width: 100%; border-collapse: collapse; font-size: 15px; }
-  th {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10.5px;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    color: var(--texte2);
-    text-align: left;
-    padding: 8px 10px 8px 0;
-    border-bottom: 1px solid var(--filet);
-  }
-  td {
-    padding: 10px 10px 10px 0;
-    border-bottom: 1px solid var(--filet);
-    vertical-align: top;
-  }
-  tr:last-child td { border-bottom: none; }
-  .mono {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--texte);
-  }
-  .encart {
-    background: var(--encastre);
-    border-radius: 12px;
-    padding: 14px 16px;
-    margin: 16px 0;
-    font-size: 15px;
-  }
-  .encart-warning {
-    background: var(--warning-bg);
-    color: var(--warning-fort);
-  }
-  .encart-warning strong { color: var(--warning-fort); }
-  .cta {
-    background: var(--accent);
-    border-radius: 18px;
-    padding: 24px;
-    margin: 44px 0 28px;
-    color: #fff;
-  }
-  .cta h2 { color: #fff; margin: 0 0 8px; font-size: 19px; }
-  .cta p { color: rgba(255,255,255,.85); font-size: 15px; margin-bottom: 16px; }
-  .cta a.btn {
-    display: inline-block;
-    background: #fff;
-    color: var(--accent-texte);
-    font-weight: 700;
-    font-size: 15px;
-    padding: 13px 22px;
-    border-radius: 13px;
-    text-decoration: none;
-  }
-  footer {
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 1px solid var(--filet);
-    font-size: 13.5px;
-    color: var(--texte2);
-  }
-  footer .verif {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.06em;
-    margin-top: 10px;
-  }
-  @media (max-width: 480px) {
-    h1 { font-size: 25px; }
-    h2 { font-size: 19px; }
-  }
-</style>
-</head>
-<body>
-<div class="page">
-
-  <nav class="fil"><a href="index.html">MicroCotiz</a> · Guides</nav>
+  </script>
 
   <h1>Première déclaration URSSAF : pourquoi tu attends 90 jours, et pourquoi déclarer 0 € est obligatoire</h1>
   <p class="meta">Publié le 18 août 2026 · Règles vérifiées aux sources officielles</p>
@@ -268,7 +107,4 @@
     <p>MicroCotiz est un outil d'aide à la gestion. Cet article informe, il ne remplace pas un conseil personnalisé.</p>
     <p class="verif">REGLES VERIFIEES LE 18/08/2026</p>
   </footer>
-
-</div>
-</body>
-</html>
+</Base>

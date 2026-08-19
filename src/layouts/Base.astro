@@ -1,0 +1,50 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  /** Nom de fichier de la page publiée (ex. "seuil-tva-auto-entrepreneur-2026.html").
+   *  Absent = pas de balise canonical (index et confidentialité n'en avaient pas). */
+  canonical?: string;
+  /** Gabarit : cartes (accueil/guides), longform (articles), privacy. */
+  variant: 'cards' | 'longform' | 'privacy';
+}
+
+const { title, description, canonical, variant } = Astro.props;
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const canonicalURL = canonical ? new URL(`${base}/${canonical}`, Astro.site) : undefined;
+---
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{title}</title>
+<meta name="description" content={description}>
+{canonicalURL && <link rel="canonical" href={canonicalURL.href}>}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<slot name="head" />
+</head>
+<body>
+<header class="site-header">
+  <a class="logo" href={`${base}/`}>MicroCotiz</a>
+  <a class="appstore" href="https://apps.apple.com/fr/app/id6793455032" rel="noopener">App Store</a>
+</header>
+<main class={variant}>
+  <slot />
+</main>
+<footer class="site-footer">
+  <nav class="liens">
+    <a href={`${base}/`}>Accueil et support</a>
+    <a href={`${base}/confidentialite.html`}>Politique de confidentialité</a>
+    <a href="mailto:soghomoniantom@gmail.com?subject=MicroCotiz%20%E2%80%94%20support">Contact</a>
+  </nav>
+  <a class="badge" href="https://apps.apple.com/fr/app/id6793455032" rel="noopener">Télécharger sur l'App Store</a>
+  <p class="disclaimer">MicroCotiz est un outil d'information et d'aide au suivi. Il ne remplace ni l'URSSAF ni un expert-comptable.</p>
+</footer>
+</body>
+</html>
